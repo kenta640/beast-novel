@@ -1,9 +1,14 @@
 //tailwind style is imported
 import '../styles/main.css'
 import {AppProps} from 'next/app'
+import { SessionProvider } from "next-auth/react";
+function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
+  return (
+  <SessionProvider session={session}>
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+    <Component {...pageProps} />
+  </SessionProvider>
+  )
 }
 
 export default MyApp
