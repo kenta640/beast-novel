@@ -9,6 +9,7 @@ export const useGetNovels = () =>
     () => fetch('https://fastify-mysql-server.herokuapp.com/novel', {
       method: 'GET',
       mode: 'cors',
-    }),  //Simple fetch function
+    })
+    .then(x=>x.json()),  //Simple fetch function
   );
   

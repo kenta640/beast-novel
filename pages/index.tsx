@@ -3,9 +3,14 @@ import {Navbar} from '../components/Navbar'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useGetNovels } from "./api/novel.hooks";
 
+interface NovelKeys {
+  id: Number,
+  title: string,
+  published_date: string
+}
 
 function Home() {
-  const {data: novels} = useGetNovels();
+  const {data: novels, isLoading} = useGetNovels();
   /*const { data: session, status } = useSession();
 
   if (status === "loading") {
@@ -19,14 +24,30 @@ function Home() {
   }*/
 
   //if (status === "authenticated") {
+  //console.log(novels?.data[0].title)
+   // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+    /**novels?.data.map(val => ({
+      id: val.id,
+      title: val.title
+    } as NovelKeys));**/
     return (
       <div>
         <Navbar/>
         <Head>
           <title>Beast Novel</title>
-         
+
         </Head>
-        <h1>{novels}</h1>
+        {!isLoading ? 
+      (<ul>
+        {  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+        novels?.data.map(x => 
+          <>
+          <li key={x.title}>{x.title}</li>
+          <li key={x.published_date}>{x.published_date}</li>
+          </>
+        )
+        }
+      </ul>) : 'Loading...'}
 
       </div>);
   //}
