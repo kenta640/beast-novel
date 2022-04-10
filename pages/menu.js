@@ -1,27 +1,5 @@
 import {Navbar} from '../components/Navbar'
-//import PizzaMenuComponent from './graphql'
-import { gql } from "@apollo/client";
-import client from "../apollo-client";
 
-
-/*
-export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query Pizzas {
-        pizzas {
-          id
-          name
-        }
-      }
-    `,
-  });
-    return {
-      props: {
-        pizzas: data.pizzas.slice(0, 4),
-      },
-   };
-}*/
 
 function Menu({pizzas}) {
     return (
