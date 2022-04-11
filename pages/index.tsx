@@ -2,7 +2,7 @@ import Head from 'next/head';
 import {Navbar} from '../components/Navbar'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useGetNovels } from "./api/novel.hooks";
-
+import Link from "next/link"
 interface NovelKeys {
   id: Number,
   title: string,
@@ -11,25 +11,7 @@ interface NovelKeys {
 
 function Home() {
   const {data: novels, isLoading} = useGetNovels();
-  /*const { data: session, status } = useSession();
 
-  if (status === "loading") {
-    return (
-      <div className="flex justify-center items-center">
-        <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
-           <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    )
-  }*/
-
-  //if (status === "authenticated") {
-  //console.log(novels?.data[0].title)
-   // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-    /**novels?.data.map(val => ({
-      id: val.id,
-      title: val.title
-    } as NovelKeys));**/
     return (
       <div>
         <Navbar/>
@@ -37,19 +19,35 @@ function Home() {
           <title>Beast Novel</title>
 
         </Head>
-        {!isLoading ? 
-      (<ul>
-        {  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-        novels?.data.map(x => 
-          <>
-          <li key={x.title}>{x.title}</li>
-          <li key={x.published_date}>{x.published_date}</li>
-          </>
-        )
-        }
-      </ul>) : 'Loading...'}
-
+        <div className="grid grid-cols-5 gap-4">
+          <div></div>
+          <div className="col-span-3">
+          {!isLoading ? 
+          (<ul>
+            {  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+            novels?.data.map(x => 
+              <>
+              <li key={x.title} className = "bg-gray-100 hover:bg-gray-200">
+                <div className = "flow-root">
+                  <p className = "float-left">{x.title}</p>
+                  <p className = "float-right">
+                  <Link href={`/UserDetails/${encodeURIComponent(x.user_id)}`}>
+                    <a className = "hover:text-green-500"> {x.user_id} </a>
+                  </Link>
+                  </p>
+                </div>
+                <p>{x.published_date}</p>  
+              </li>
+              </>
+            )
+            }
+          </ul>) : 'Loading...'}
+          </div>
+          <div></div>
+      </div>
       </div>);
+
+  
   //}
  
   /**if (status === "unauthenticated") {
