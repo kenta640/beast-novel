@@ -29,7 +29,11 @@ function Home() {
               <>
               <li key={x.title} className = "bg-gray-100 hover:bg-gray-200">
                 <div className = "flow-root">
-                  <p className = "float-left">{x.title}</p>
+                  <p className = "float-left">
+                  <Link href= {`/NovelDetails/${encodeURIComponent(x.id)}`}>
+                    <a className = "hover:text-green-500"> {x.title} </a>
+                  </Link>
+                  </p>
                   <p className = "float-right">
                   <Link href={`/UserDetails/${encodeURIComponent(x.user_id)}`}>
                     <a className = "hover:text-green-500"> {x.user_id} </a>

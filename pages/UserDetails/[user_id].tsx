@@ -6,10 +6,16 @@ const UserPage=()=> {
     const { user_id } = router.query
     //console.log(user_id)
     //console.log(useFetchUser(user_id))
+    const {data: data, isLoading }= useFetchUser(user_id)
+    if (isLoading) {
+        return(<>Loading...</>)
+    }
     return(<>
     <Navbar/>
-
-     <p>User: {useFetchUser(user_id).data}</p>
+     <p>User: {
+     JSON.stringify(data.data)
+     
+     }</p>
     </>)
 }
 
