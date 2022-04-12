@@ -1,5 +1,5 @@
-import {useGetNovels} from "../pages/api/novel.hooks"
-import {Navbar} from "../components/Navbar"
+import {useGetNovels} from "../api/novel.hooks"
+import {Navbar} from "../../components/Navbar"
 const NovelPage=()=> {
     return(
     
