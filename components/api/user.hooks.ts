@@ -17,6 +17,6 @@ export const useFetchUser = (id) =>
   useQuery(
     ServerStateKeysEnum.User,
     () => fetch(`https://fastify-mysql-server.herokuapp.com/user/${id}`)
-    .then(res => res.json()) //Simple fetch function
+    .then(x => x.json()) //Simple fetch function
   );
 
