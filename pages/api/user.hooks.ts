@@ -3,25 +3,20 @@ export enum ServerStateKeysEnum {
     User = 'user'
 }
 
-export const useGetUsers = () =>
-  useQuery(
+
+export const useGetUsers = async () =>
+  await useQuery(
     ServerStateKeysEnum.User,
-    () => fetch('https://fastify-mysql-server.herokuapp.com/user'),  //Simple fetch function
+    () => fetch('https://fastify-mysql-server.herokuapp.com/user')
+    .then(res=>res.text())
+    ,  //Simple fetch function
   );
 
-
-  export const useGetUser = () =>
+// @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+export const useFetchUser = (id) =>
   useQuery(
     ServerStateKeysEnum.User,
-    () => fetch(`https://fastify-mysql-server.herokuapp.com/user`, {
-      method: 'GET',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-       redirect: 'follow',
-       referrerPolicy: 'strict-origin-when-cross-origin'
-    }),  //Simple fetch function
+    () => fetch(`https://fastify-mysql-server.herokuapp.com/user/${id}`)
+    .then(response => response.text()) //Simple fetch function
   );
+
