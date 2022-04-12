@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
-import {Navbar} from '../components/Navbar'
-import { useFetchUser, } from "../components/api/user.hooks";
+import {Navbar} from '../../components/Navbar'
+import { useFetchUser, } from "../../components/api/user.hooks"
+
 const UserPage=()=> {
     const router = useRouter()
     const { user_id } = router.query
@@ -8,7 +9,10 @@ const UserPage=()=> {
     //console.log(useFetchUser(user_id))
     const {data: userData, isLoading }= useFetchUser(user_id)
     if (isLoading) {
-        return(<>Loading...</>)
+        return(<>
+        <Navbar/>
+        <p>Loading...</p>
+        </>)
     }
     return(<>
     <Navbar/>
