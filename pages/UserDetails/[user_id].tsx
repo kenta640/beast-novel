@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import {Navbar} from '../../components/Navbar'
+import {Navbar} from '../components/Navbar'
 import { useFetchUser, } from "../api/auth/user.hooks"
 
 const UserPage=()=> {
@@ -14,10 +14,17 @@ const UserPage=()=> {
         <p>Loading...</p>
         </>)
     }
+    const user = userData.data
     return(<>
     <Navbar/>
      <p>User: {
-     JSON.stringify(userData.data)
+     JSON.stringify(user.name)
+     
+     
+     }</p>
+     <p>{
+     JSON.stringify(user.email)
+     
      
      }</p>
     </>)
