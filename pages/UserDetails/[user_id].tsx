@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import {Navbar} from '../components/Navbar'
+import {Navbar} from '../../components/Navbar'
 import { useFetchUser, } from "../api/auth/user.hooks"
 
 const UserPage=()=> {
