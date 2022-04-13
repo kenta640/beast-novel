@@ -1,11 +1,15 @@
-import {useGetNovels} from "../api/auth/novel.hooks"
+import {useGetNovel} from "../api/auth/novel.hooks"
 import {Navbar} from "../../components/Navbar"
-const NovelPage=()=> {
+import { json } from "stream/consumers"
+ // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+const NovelPage=(novel_id)=> {
+
+    const {data: data, isLoading} = useGetNovel(novel_id)
     return(
     
     <>
     <Navbar/>
-    {}
+    { JSON.stringify(data)}
     </>)
 }
 
