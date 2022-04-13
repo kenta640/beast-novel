@@ -20,7 +20,6 @@
     "@types/react": "^17.0.27",
     "authentication": "0.0.4",
     "autoprefixer": "^10.3.7",
-    "axios": "^0.26.1",
     "create-next-app": "^12.1.4",
     "next": "^11.1.2",
     "next-auth": "^4.0.0-beta.7",
