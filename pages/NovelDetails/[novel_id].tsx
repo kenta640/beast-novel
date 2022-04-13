@@ -1,11 +1,11 @@
-import {useGetNovels} from "../../components/api/novel.hooks"
+import {useGetNovels} from "../api/auth/novel.hooks"
 import {Navbar} from "../../components/Navbar"
 const NovelPage=()=> {
     return(
     
     <>
     <Navbar/>
-    {useGetNovels()}
+    {}
     </>)
 }
 

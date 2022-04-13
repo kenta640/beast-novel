@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import {Navbar} from '../components/Navbar'
 import { useSession, signIn, signOut } from "next-auth/react"
-import { useGetNovels } from "../components/api/novel.hooks";
+import { useGetNovels } from "./api/auth/novel.hooks";
 import Link from "next/link"
 interface NovelKeys {
   id: Number,
