@@ -3,10 +3,10 @@ export enum ServerStateKeysEnum {
     Novel = 'novel'
 }
 
-export const useGetNovels = () =>
+export const useGetEpisodes = () =>
   useQuery(
     ServerStateKeysEnum.Novel,
-    () => fetch('https://fastify-mysql-server.herokuapp.com/novel', {
+    () => fetch('https://fastify-mysql-server.herokuapp.com/episode', {
       method: 'GET',
       mode: 'cors',
     })

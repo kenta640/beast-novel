@@ -3,11 +3,19 @@ import '../styles/main.css'
 import {AppProps} from 'next/app'
 import { SessionProvider } from "next-auth/react";
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-const queryClient = new QueryClient()
+const queryCache = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: true,
+      retry: true,
+      staleTime: 30000,
+    },
+  },
+});
 function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
   return (
   <SessionProvider session={session}>
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryCache}>
     <Component {...pageProps} />
     </QueryClientProvider>
   </SessionProvider>

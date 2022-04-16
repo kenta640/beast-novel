@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 import {Navbar} from '../../components/Navbar'
 import { useFetchUser, } from "../api/auth/user.hooks"
-
+import {NovelByUser} from "../../components/novelsByUser"
+import {useGetNovelByUser} from "../../components/api/novelByUser.hooks"
 const UserPage=()=> {
     const router = useRouter()
     const { user_id } = router.query
@@ -27,6 +28,8 @@ const UserPage=()=> {
      
      
      }</p>
+     
+     <NovelByUser user_id = {user.id}/>
     </>)
 }
 

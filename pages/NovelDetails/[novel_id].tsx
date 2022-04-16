@@ -5,12 +5,20 @@ import { json } from "stream/consumers"
 const NovelPage=(novel_id)=> {
 
     const {data: data, isLoading} = useGetNovel(novel_id)
-    return(
+    console
+    if(isLoading){
+        return(
     
-    <>
-    <Navbar/>
-    { JSON.stringify(data)}
-    </>)
+            <>
+            <Navbar/>
+            { 
+                
+                JSON.stringify(data)
+                
+            }
+            </>)
+    }
+
 }
 
 export default NovelPage
