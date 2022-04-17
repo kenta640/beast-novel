@@ -12,9 +12,6 @@ export const NovelByUser = (user_id) => {
           {!isLoading ? 
           (
           <ul>
-            {
-              console.log(data)
-            }
             {  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
             data?.data.map(x => 
               <>

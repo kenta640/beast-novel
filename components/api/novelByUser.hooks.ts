@@ -3,9 +3,9 @@ export enum ServerStateKeysEnum {
     NovelsByUser = 'NovelsByUser'
 }
   // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-  export const useGetNovelByUser = async (user_id) => {
+  export const useGetNovelByUser = (user_id) => {
     const id   = encodeURIComponent(user_id);
-    const query = await useQuery(
+    const query = useQuery(
     ServerStateKeysEnum.NovelsByUser,
     () => fetch(`https://fastify-mysql-server.herokuapp.com/novelsByUserId/${id}`)
     .then(res=>
@@ -20,6 +20,5 @@ export enum ServerStateKeysEnum {
         console.error('Error:', error);
       })
   );
-   console.log(query)
    return query
   }

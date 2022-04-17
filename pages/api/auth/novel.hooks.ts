@@ -14,12 +14,17 @@ export const useGetNovels = () =>
     .then(res=>res.json()),  //Simple fetch function
   );
   // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-  export const useGetNovel = (novel_id) =>
-  useQuery(
-    ServerStateKeysEnum.Novel,
-    () => fetch(`https://fastify-mysql-server.herokuapp.com/novel/${novel_id}`, {
-      method: 'GET',
-      mode: 'cors',
-    })
-    .then(res=>res.json()),  //Simple fetch function
-  );
+  export const useGetNovel = (novel_id) => {
+    console.log(novel_id)
+    const id   = encodeURIComponent(novel_id);
+    return useQuery(
+      ServerStateKeysEnum.Novel,
+      () => fetch(`https://fastify-mysql-server.herokuapp.com/novel/${id}`, {
+        method: 'GET',
+        mode: 'cors',
+      })
+      .then(res=>{return res.json()})
+      .then(res=>{return res}),  //Simple fetch function
+    );
+    
+  }
