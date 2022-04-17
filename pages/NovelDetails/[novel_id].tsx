@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
-import {useGetEpisodes} from "../api/auth/episode.hooks"
+import {useGetEpisodes} from "../api/hooks/episode.hooks"
 import {Navbar} from "../../components/Navbar"
 import { json } from "stream/consumers"
+import Link from "next/link"
  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 const NovelPage=()=> {
 
@@ -23,7 +24,9 @@ const NovelPage=()=> {
                                             <>
                                             <li key={x.episode_title} className = "bg-gray-100 hover:bg-gray-200">
                                             <div className = "flow-root">
-                                            <a className = "hover:text-green-500"> {x.episode_title} </a>
+                                            <Link href= {`/EpisodeDetails/${encodeURIComponent(x.id)}`}>
+                                                <a className = "hover:text-green-500"> {x.episode_title} </a>
+                                            </Link>
                                             </div>
                                             </li>
                                             </>
