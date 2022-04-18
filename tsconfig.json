@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/Navbar.jsx", "pages/graphql.tsxql.js", "pages/menu.js"  ],
+, "components/Navbar.jsx", "pages/graphql.tsxql.js", "pages/menu.tsx"  ],
   "exclude": [
     "node_modules"
   ]

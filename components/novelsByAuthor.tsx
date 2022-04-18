@@ -2,7 +2,7 @@ import {useGetNovelByUser} from "./api/novelByUser.hooks"
 import Link from "next/link"
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-export const NovelByUser = (user_id, isAuther) => {
+export const NovelByAuthor= (user_id, isAuther) => {
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
  const {data, isLoading, status} = useGetNovelByUser(user_id.user_id)
  return(
@@ -22,7 +22,11 @@ export const NovelByUser = (user_id, isAuther) => {
                     <a className = "hover:text-green-500"> {x.title} </a>
                   </Link>
                   </p>
-                  
+                  <p className = "float-right">
+                  <Link href= {`/Edit/${encodeURIComponent(x.id)}`}>
+                    <a className = "hover:text-green-500"> Edit </a>
+                  </Link>
+                  </p>
                 </div>
                 <p>{x.published_date}</p>  
               </li>

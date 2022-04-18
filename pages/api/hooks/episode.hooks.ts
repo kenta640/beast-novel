@@ -1,12 +1,12 @@
 import { useQuery } from "react-query";
 export enum ServerStateKeysEnum {
-    Novel = 'novel'
+    Episode = 'episode'
 }
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 export const useGetEpisodes = (novel_id) =>{
 const id = encodeURIComponent(novel_id)
   const query = useQuery(
-    ServerStateKeysEnum.Novel,
+    ServerStateKeysEnum.Episode,
     () => fetch(`https://fastify-mysql-server.herokuapp.com/episodeByNovel/${id}`)
     .then(res=> {return res.json()})
     .then(res=> {return res})
