@@ -18,7 +18,7 @@ export const NovelByAuthor= (user_id, isAuther) => {
               <li key={x.title} className = "bg-gray-100 hover:bg-gray-200">
                 <div className = "flow-root">
                   <p className = "float-left">
-                  <Link href= {`/NovelDetails/${encodeURIComponent(x.id)}`}>
+                  <Link href= {`/Edit/${encodeURIComponent(x.id)}`}>
                     <a className = "hover:text-green-500"> {x.title} </a>
                   </Link>
                   </p>
