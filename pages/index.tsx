@@ -3,11 +3,6 @@ import {Navbar} from '../components/Navbar'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useGetNovels } from "./api/hooks/novel.hooks";
 import Link from "next/link"
-interface NovelKeys {
-  id: Number,
-  title: string,
-  published_date: string
-}
 
 function Home() {
   const {data: novels, isLoading} = useGetNovels();

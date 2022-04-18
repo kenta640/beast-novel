@@ -10,7 +10,7 @@ export interface IInputProps {
 
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-function Write({pizzas}) {
+function Write() {
   const {data: userData, isLoading }= useFetchUser(14)
     if (isLoading) {
         return(<>
@@ -32,7 +32,16 @@ function Write({pizzas}) {
      
      
      }</p>
-     
+     <div className="grid grid-cols-5 gap-4">
+       <div></div>
+       <div></div>
+        <button className="bg-transparent hover:bg-red-300 text-red-400 font-semibold hover:text-white py-2 px-4 border border-red-300 hover:border-transparent rounded">
+          New Novel
+        </button>
+        <div></div>
+        <div></div>
+     </div>
+
      <NovelByAuthor user_id = {user.id}/>
       </div>);
 }
