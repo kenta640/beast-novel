@@ -3,6 +3,25 @@ export enum ServerStateKeysEnum {
     Novels = 'novels',
     Novel = 'novel'
 }
+// @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+export const useAddNovel = (params) => {
+  console.log(params)
+  return useQuery(
+    ServerStateKeysEnum.Novel,
+    () => fetch(`https://fastify-mysql-server.herokuapp.com/novel/`, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    })
+    .then(res=>{return res.json()})
+    .then(res=>{return res}),  //Simple fetch function
+  );
+  
+}
+
 
 export const useGetNovels = () =>
   useQuery(
