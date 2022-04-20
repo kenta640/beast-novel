@@ -36,7 +36,7 @@ function Write() {
        <div></div>
        <div></div>
         <button className="bg-transparent hover:bg-red-300 text-red-400 font-semibold hover:text-white py-2 px-4 border border-red-300 hover:border-transparent rounded">
-          New Novel
+          New
         </button>
         <div></div>
         <div></div>
