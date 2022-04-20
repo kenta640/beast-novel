@@ -1,6 +1,6 @@
-import {Navbar} from '../components/Navbar'
-import { useFetchUser, } from "./api/hooks/user.hooks"
-import {NovelByAuthor} from "../components/novelsByAuthor"
+import {Navbar} from '../../components/Navbar'
+import { useFetchUser, } from "../api/hooks/user.hooks"
+import {NovelByAuthor} from "../../components/novelsByAuthor"
 import Link from "next/link"
 import { useRouter } from "next/router"
 export interface IInputProps {
@@ -14,9 +14,12 @@ export interface IInputProps {
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 function Write() {
   const router = useRouter();
+  const { user_id } = router.query
+
   // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
   const handleClick = (e, path) => {
-    if (path === "/NewNovel/newNovel") {
+    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+    if (path === `/NewNovel/${encodeURIComponent(user_id)}`) {
       console.log("I clicked on the About Page");
     }
   };

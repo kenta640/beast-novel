@@ -9,6 +9,7 @@ const NovelPage=()=> {
     
     const router = useRouter()
     const { novel_id } = router.query
+    //console.log(novel_id)
     const {data: episodes, isLoading} = useGetEpisodes(novel_id)
     return (
         <div>
