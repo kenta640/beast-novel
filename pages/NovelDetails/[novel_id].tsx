@@ -3,12 +3,14 @@ import {useGetEpisodes} from "../api/hooks/episode.hooks"
 import {Navbar} from "../../components/Navbar"
 import { json } from "stream/consumers"
 import Link from "next/link"
+import { useState, useEffect } from "react";
  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 const NovelPage=()=> {
 
     
     const router = useRouter()
     const { novel_id } = router.query
+
     //console.log(novel_id)
     const {data: episodes, isLoading} = useGetEpisodes(novel_id)
     return (

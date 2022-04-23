@@ -32,7 +32,7 @@ function Home() {
                   </p>
                   <p className = "float-right">
                   <Link href={`/UserDetails/${encodeURIComponent(x.user_id)}`}>
-                    <a className = "hover:text-green-500"> {x.user_id} </a>
+                    <a className = "hover:text-green-500"> User Page </a>
                   </Link>
                   </p>
                 </div>

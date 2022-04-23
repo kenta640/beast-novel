@@ -5,7 +5,6 @@ export enum ServerStateKeysEnum {
 }
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 export const useAddNovel = (params) => {
-  console.log(params)
   return useQuery(
     ServerStateKeysEnum.Novel,
     () => fetch(`https://fastify-mysql-server.herokuapp.com/novel/`, {
