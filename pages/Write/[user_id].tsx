@@ -23,7 +23,7 @@ function Write() {
       console.log("I clicked on the About Page");
     }
   };
-  const {data: userData, isLoading }= useFetchUser(14)
+  const {data: userData, isLoading }= useFetchUser(24)
     if (isLoading) {
         return(<>
         <Navbar/>

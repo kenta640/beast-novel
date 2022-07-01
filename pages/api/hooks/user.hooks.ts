@@ -7,7 +7,7 @@ export enum ServerStateKeysEnum {
 export const useGetUsers = async () =>
   await useQuery(
     ServerStateKeysEnum.User,
-    () => fetch('https://fastify-mysql-server.herokuapp.com/user')
+    () => fetch(`https://fastify-server-app.herokuapp.com/user`)
     .then(res=>res.text())
     ,  //Simple fetch function
   );
@@ -16,7 +16,7 @@ export const useGetUsers = async () =>
 export const useFetchUser = (id) =>
   useQuery(
     ServerStateKeysEnum.User,
-    () => fetch(`https://fastify-mysql-server.herokuapp.com/user/${id}`)
+    () => fetch(`https://fastify-server-app.herokuapp.com/user/${id}`)
     .then(x => x.json()) //Simple fetch function
   );
 

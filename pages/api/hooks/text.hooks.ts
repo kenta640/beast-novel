@@ -9,6 +9,6 @@ export enum ServerStateKeysEnum {
 export const useFetchText = (episode_id) =>
   useQuery(
     ServerStateKeysEnum.Text,
-    () => fetch(`https://fastify-mysql-server.herokuapp.com/text/${episode_id}`)
+    () => fetch(`https://fastify-server-app.herokuapp.com/text/${episode_id}`)
     .then(x => x.json()) //Simple fetch function
   );

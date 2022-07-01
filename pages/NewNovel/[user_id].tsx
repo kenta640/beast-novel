@@ -15,9 +15,34 @@ function NewNovel() {
         <div className="col-span-3">
         <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="title">Title</label>
         <input className="py-2 px-3 shadow w-full" id="name" type="text" autoComplete="name" required /><br/>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
         </div>
         <div></div>
+        <div></div>
+        <div className="col-span-3">
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="summary">Summary</label>
+        <textarea className='py-2 px-3 shadow w-full'>
+            Write the summary of your novel.
+        </textarea><br/>
+        </div>
+        <div></div>
+        <div></div>
+        <div className="col-span-3">
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="summary">First Episode</label>
+        <textarea className='py-10 px-3 shadow w-full'>
+            Write the first episode of your novel.
+        </textarea><br/>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div>
+        
+        </div>
+        
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
+        
+        
+        
         </form>
         
 

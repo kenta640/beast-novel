@@ -5,22 +5,31 @@ import { json } from "stream/consumers"
 import Link from "next/link"
 import { useState, useEffect } from "react";
  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-const NovelPage=()=> {
+const NovelPage : React.FunctionComponent <RouteComponentProps<any>>=()=> {
 
     
     const router = useRouter()
-    const { novel_id } = router.query
+    const query = router.query;
+
+    const [data, setData] = useState([]);
+    //Failed to configure react query
+    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+
+
 
     //console.log(novel_id)
-    const {data: episodes, isLoading} = useGetEpisodes(novel_id)
+    const {data: episodes, isLoading} = useGetEpisodes(query.novel_id)
+
     return (
         <div>
             <Navbar/>
             <div className="grid grid-cols-5 gap-4">
                 <div></div>
+                {!isLoading ? 
+          (
                 <div className="col-span-3">
                     {
-                        !isLoading? (
+                       
                             <ul>
                                 {// @ts-ignore to ignore the type checking errors on the next line in a TypeScript
                                     episodes?.data.map(x =>
@@ -36,14 +45,13 @@ const NovelPage=()=> {
                                         )
                                 }
                             </ul>
-                        ) : 'Loading...'
+                        
                     }
-                </div>
+                </div>): 'Loading...'}
                 <div></div>
             </div>
         </div>
     )
-    
 
 }
 
