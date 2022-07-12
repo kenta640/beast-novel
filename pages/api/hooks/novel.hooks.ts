@@ -1,14 +1,28 @@
-import { useQuery } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
+import axios from "axios";
+export type Novel = {
+  id: string;
+  title: string;
+  summary: string;
+};
+
+
+
 export enum ServerStateKeysEnum {
     Novels = 'novels',
     Novel = 'novel',
     PostNovel = `postNovel`
 }
+
+
+
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+
 export const useAddNovel = (params) => {
-  return useQuery(
+  const queryClient = useQueryClient();
+  return useMutation(
     ServerStateKeysEnum.Novel,
-    () => fetch(`${process.env.API_BASE_URL}/novel/`, {
+    () => fetch(`https://fastify-server-app.herokuapp.com/addNovel`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -17,7 +31,8 @@ export const useAddNovel = (params) => {
       },
       body: JSON.stringify({
         title: params.title,
-        summary: params.summary
+        summary: params.summary,
+        user_id: params.user_id
       })
     })
     .then(res=>{return res.json()})

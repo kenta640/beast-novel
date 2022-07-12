@@ -7,7 +7,7 @@ export const useGetEpisodes = (novel_id) =>{
 const id = encodeURIComponent(novel_id)
   const query = useQuery(
     ServerStateKeysEnum.Episode,
-    () => fetch(`${process.env.API_BASE_URL}/episodeByNovel/${id}`)
+    () => fetch(`https://fastify-server-app.herokuapp.com/episodeByNovel/${id}`)
     .then(res=> {return res.json()})
     .then(res=> {return res})
     .catch((error) => {
