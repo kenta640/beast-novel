@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
-
+import type { NextAuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
-export const authOptions ={
+export const authOptions: NextAuthOptions ={
 
     providers: [
   
@@ -18,16 +18,11 @@ export const authOptions ={
   
     ],
   
-    jwt: {
-    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-      encryption: true
-  
-    },
   
     theme: {
       colorScheme: "light",
     },
-    secret: "secret token",
+    
   
     //Callback here
 
@@ -41,7 +36,7 @@ export const authOptions ={
         },
   
     
-    }
+    },
   
   };
 
