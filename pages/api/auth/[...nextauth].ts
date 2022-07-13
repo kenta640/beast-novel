@@ -19,11 +19,9 @@ export const authOptions: NextAuthOptions ={
     ],
   
   
-    theme: {
-      colorScheme: "light",
-    },
+    secret: process.env.SECRET,
     
-  
+   
     //Callback here
 
     callbacks: {
