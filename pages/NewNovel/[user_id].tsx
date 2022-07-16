@@ -5,6 +5,10 @@ import {useForm, SubmitHandler} from "react-hook-form"
 import {useMutation} from "react-query"
 import router from 'next/router'
 import axios from 'axios'
+import { useState, useEffect } from "react"
+import { useSession } from "next-auth/react"
+import Layout from "../../components/layout"
+import AccessDenied from "../../components/access-denied"
 type Inputs = {
     title: string,
     summary: string,
@@ -48,6 +52,34 @@ function NewNovel() {
                     summary: newNovel.summary,
                     user_id: 24,
                 }).catch(errorUtils.getError)).data
+
+                const { data: session, status } = useSession()
+                const loading = status === "loading"
+                const [content, setContent] = useState()
+              
+                // Fetch content from protected route
+                useEffect(() => {
+                  const fetchData = async () => {
+                    const res = await fetch("/api/examples/protected")
+                    const json = await res.json()
+                    if (json.content) {
+                      setContent(json.content)
+                    }
+                  }
+                  fetchData()
+                }, [session])
+              
+                // When rendering client side don't display anything until loading is complete
+                if (typeof window !== "undefined" && loading) return null
+              
+                // If no session exists, display access denied message
+                if (!session) {
+                  return (
+                    <Layout>
+                      <AccessDenied />
+                    </Layout>
+                  )
+                }
     
     return (
         <div><Navbar/>
