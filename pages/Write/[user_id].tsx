@@ -1,3 +1,7 @@
+import { useState, useEffect } from "react"
+import { useSession } from "next-auth/react"
+import Layout from "../../components/layout"
+import AccessDenied from "../../components/access-denied"
 import {Navbar} from '../../components/Navbar'
 import { useFetchUser, } from "../api/hooks/user.hooks"
 import {NovelByAuthor} from "../../components/novelsByAuthor"
@@ -16,6 +20,9 @@ function Write() {
   const router = useRouter();
   const { user_id } = router.query
 
+  const { data: session, status } = useSession()
+  const loading = status === "loading"
+  const [content, setContent] = useState()
   // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
   const handleClick = (e, path) => {
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
@@ -23,6 +30,27 @@ function Write() {
       console.log("I clicked on the About Page");
     }
   };
+
+    // Fetch content from protected route
+    useEffect(() => {
+      const fetchData = async () => {
+        const res = await fetch("/api/examples/protected")
+        const json = await res.json()
+        if (json.content) {
+          setContent(json.content)
+        }
+      }
+      fetchData()
+    }, [session])
+    if (typeof window !== "undefined" && loading) return null
+    if (!session) {
+      return (
+        <Layout>
+          <AccessDenied />
+        </Layout>
+      )
+    }
+
   const {data: userData, isLoading }= useFetchUser(24)
     if (isLoading) {
         return(<>
