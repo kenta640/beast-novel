@@ -10,7 +10,7 @@ export default function Header() {
   const loading = status === "loading"
 
   return (
-    <header>
+    <div>
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
@@ -103,6 +103,6 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-    </header>
+      </div>
   )
 }
