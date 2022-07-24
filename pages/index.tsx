@@ -69,6 +69,9 @@ function Home() {
                 <br />
                 <strong>{session.user.email ?? session.user.name}</strong>
               </span>
+              {
+                register(session.user)
+              }
               <a
                 href={`/api/auth/signout`}
                 className={styles.button}
