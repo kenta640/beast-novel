@@ -18,6 +18,7 @@ function Home() {
                 {
                     name: newUser.name,
                     email: newUser.email,
+                    role: "user"
                 }).catch(errorUtils.getError)).data
     return (
       <div>
@@ -94,11 +95,6 @@ function Home() {
           <li className={styles.navItem}>
             <Link href="/server">
               <a>Server</a>
-            </Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/protected">
-              <a>Protected</a>
             </Link>
           </li>
           <li className={styles.navItem}>
