@@ -14,7 +14,7 @@ function Home() {
   // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
   const register= async (newUser) =>
         
-                await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
+                await (await axios.post('https://fastify-server-app.herokuapp.com/registerUser', 
                 {
                     name: newUser.name,
                     email: newUser.email,
