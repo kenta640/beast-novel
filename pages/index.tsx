@@ -4,10 +4,21 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import { useGetNovels } from "./api/hooks/novel.hooks";
 import Link from "next/link"
 import styles from "./header.module.css"
+import axios from "axios"
+import {errorUtils} from "../components/axiosErrorUtils"
+
 function Home() {
   const {data: novels, isLoading} = useGetNovels();
   const { data: session, status } = useSession()
   const loading = status === "loading"
+  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+  const register= async (newUser) =>
+        
+                await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
+                {
+                    name: newUser.name,
+                    email: newUser.email,
+                }).catch(errorUtils.getError)).data
     return (
       <div>
        
@@ -51,6 +62,9 @@ function Home() {
                   className={styles.avatar}
                 />
               )}
+              {
+                register(session.user)
+              }
               <span className={styles.signedInText}>
                 <small>Signed in as</small>
                 <br />

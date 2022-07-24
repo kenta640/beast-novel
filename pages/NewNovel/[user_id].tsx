@@ -9,32 +9,14 @@ import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import Layout from "../../components/layout"
 import AccessDenied from "../../components/access-denied"
+import {errorUtils} from "../../components/axiosErrorUtils"
 type Inputs = {
     title: string,
     summary: string,
     user_id: number
   };
 
-  export const errorUtils = {
-    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-    getError: (error) => {
-      let e = error;
-      if (error.response) {
-        e = error.response.data;                   // data, status, headers
-        console.log(e)
-        if (error.response.data && error.response.data.error) {
-          e = error.response.data.error;           // my app specific keys override
-         console.log(e)
-        }
-      } else if (error.message) {
-        console.log(error.message)
-        e = error.message;
-      } else {
-        e = "Unknown error occured";
-      }
-      return e;
-    },
-  };
+
 
 function NewNovel() {
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
