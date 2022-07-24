@@ -70,7 +70,8 @@ function Home() {
                 <strong>{session.user.email ?? session.user.name}</strong>
               </span>
               {
-                register(session.user)
+                console.log(session.user);
+                //register(session.user)
               }
               <a
                 href={`/api/auth/signout`}
