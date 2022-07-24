@@ -63,9 +63,7 @@ function Home() {
                   className={styles.avatar}
                 />
               )}
-              {
-                register(session.user)
-              }
+
               <span className={styles.signedInText}>
                 <small>Signed in as</small>
                 <br />
