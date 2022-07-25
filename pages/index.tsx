@@ -71,7 +71,7 @@ function Home() {
               </span>
               {
                 //console.log(session.user)
-                register(session.user)
+                //register(session.user)
               }
               <a
                 href={`/api/auth/signout`}
