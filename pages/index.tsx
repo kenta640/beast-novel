@@ -32,7 +32,7 @@ function Home() {
                     // Note - error messages will vary depending on browser
                   } 
 
-                })
+                }, [session])
 
     return (
       <div>
