@@ -6,6 +6,7 @@ import Link from "next/link"
 import styles from "./header.module.css"
 import axios from "axios"
 import {errorUtils} from "../components/axiosErrorUtils"
+import { useEffect } from 'react';
 
 function Home() {
   const {data: novels, isLoading} = useGetNovels();
@@ -20,6 +21,7 @@ function Home() {
                     email: newUser.email,
                     role: "user"
                 }).catch(errorUtils.getError)).data
+
     return (
       <div>
        
@@ -70,8 +72,9 @@ function Home() {
                 <strong>{session.user.email ?? session.user.name}</strong>
               </span>
               {
-                //console.log(session.user)
-                //register(session.user)
+                useEffect(() => {    
+                  register(session.user) 
+                })
               }
               <a
                 href={`/api/auth/signout`}
