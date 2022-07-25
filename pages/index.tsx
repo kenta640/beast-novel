@@ -21,6 +21,9 @@ function Home() {
                     email: newUser.email,
                     role: "user"
                 }).catch(errorUtils.getError)).data
+                useEffect(() => {    
+                  register(session?.user) 
+                })
 
     return (
       <div>
@@ -71,11 +74,7 @@ function Home() {
                 <br />
                 <strong>{session.user.email ?? session.user.name}</strong>
               </span>
-              {
-                useEffect(() => {    
-                  register(session.user) 
-                })
-              }
+
               <a
                 href={`/api/auth/signout`}
                 className={styles.button}
