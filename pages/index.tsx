@@ -22,7 +22,9 @@ function Home() {
                     role: "user"
                 }).catch(errorUtils.getError)).data
                 useEffect(() => {    
-                  register(session?.user) 
+                  if(session){
+                    register(session?.user)
+                  }
                 })
 
     return (
