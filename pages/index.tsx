@@ -21,10 +21,17 @@ function Home() {
                     email: newUser.email,
                     role: "user"
                 }).catch(errorUtils.getError)).data
-                useEffect(() => {    
-                  if(session){
-                    register(session?.user)
-                  }
+                useEffect(() => {
+                  try {
+                    if(session){
+                      register(session?.user)
+                    }
+                  } catch (error) {
+                    console.error(error);
+                    // expected output: ReferenceError: nonExistentFunction is not defined
+                    // Note - error messages will vary depending on browser
+                  } 
+
                 })
 
     return (
