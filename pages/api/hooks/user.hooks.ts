@@ -13,10 +13,10 @@ export const useGetUsers = async () =>
   );
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-export const useFetchUser = (id) =>
+export const useFetchUser = (email) =>
   useQuery(
     ServerStateKeysEnum.User,
-    () => fetch(`https://fastify-server-app.herokuapp.com/user/${id}`)
+    () => fetch(`https://fastify-server-app.herokuapp.com/user/${email}}`)
     .then(x => x.json()) //Simple fetch function
   );
 

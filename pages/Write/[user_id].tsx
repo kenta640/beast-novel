@@ -51,7 +51,7 @@ function Write() {
       )
     }
 
-  const {data: userData, isLoading }= useFetchUser(24)
+  const {data: userData, isLoading }= useFetchUser(session?.user?.email)
     if (isLoading) {
         return(<>
         <Navbar/>
