@@ -58,17 +58,17 @@ function Write() {
         <p>Loading...</p>
         </>)
     }
-    const user = userData.data
+    const user = session?.user
     return (
       <div>
       <Navbar/>
      <p>User: {
-     JSON.stringify(user.name)
+     JSON.stringify(user?.name)
      
      
      }</p>
      <p>{
-     JSON.stringify(user.email)
+     JSON.stringify(user?.email)
      
      
      }</p>
@@ -85,7 +85,7 @@ function Write() {
         <div></div>
      </div>
 
-     <NovelByAuthor user_id = {user.id}/>
+     {/**<NovelByAuthor user_id = {user?.id}/>**/}
       </div>);
 }
  export default Write
