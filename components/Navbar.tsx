@@ -1,10 +1,11 @@
 /*  ./components/Navbar.jsx     */
+import { Session } from 'inspector';
 import Link from 'next/link';
 import { useState } from 'react';
-
+import { useSession, signIn, signOut } from "next-auth/react"
 export const Navbar = () => {
   const [active, setActive] = useState(false);
-
+  const { data: session, status } = useSession()
   const handleClick = () => {
     setActive(!active);
   };
@@ -57,7 +58,7 @@ export const Navbar = () => {
                 Home
               </a>
             </Link>
-            <Link href={`/Write/${encodeURIComponent(24)}`}>
+            <Link href={`/Write`}>
               <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-red-600 hover:text-white'>
                 Write
               </a>
