@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
-import Layout from "../../components/layout"
-import AccessDenied from "../../components/access-denied"
-import {Navbar} from '../../components/Navbar'
-import { useFetchUser, } from "../api/hooks/user.hooks"
-import {NovelByAuthor} from "../../components/novelsByAuthor"
+import Layout from "../components/layout"
+import AccessDenied from "../components/access-denied"
+import {Navbar} from '../components/Navbar'
+import { useFetchUser, } from "./api/hooks/user.hooks"
+import {NovelByAuthor} from "../components/novelsByAuthor"
 import Link from "next/link"
 import { useRouter } from "next/router"
 export interface IInputProps {

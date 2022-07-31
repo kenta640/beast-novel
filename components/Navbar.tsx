@@ -58,7 +58,7 @@ export const Navbar = () => {
                 Home
               </a>
             </Link>
-            <Link href={`/Write/write`}>
+            <Link href={`/write`}>
               <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-red-600 hover:text-white'>
                 Write
               </a>
