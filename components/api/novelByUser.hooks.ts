@@ -7,7 +7,7 @@ export enum ServerStateKeysEnum {
     const id   = encodeURIComponent(user_id);
     const query = useQuery(
     ServerStateKeysEnum.NovelsByUser,
-    () => fetch(`${process.env.API_BASE_URL}/novelsByUserId/${id}`)
+    () => fetch(`https://fastify-server-app.herokuapp.com/novelsByUserId/${id}`)
     .then(res=>
       {
         const result = res.json();
