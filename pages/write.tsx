@@ -44,16 +44,7 @@ function Write() {
       fetchData()
     }, [session])
     //access server to aquire user id
-    useEffect(() => {
-      const fetchData = async () => {
-        const res = await fetch("/api/examples/protected")
-        const json = await res.json()
-        if (json.content) {
-          setContent(json.content)
-        }
-      }
-      fetchData()
-    }, )
+
     if (typeof window !== "undefined" && loading) return null
     if (!session) {
       return (
