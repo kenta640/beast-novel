@@ -7,6 +7,7 @@ import { useFetchUser, } from "./api/hooks/user.hooks"
 import {NovelByAuthor} from "../components/novelsByAuthor"
 import Link from "next/link"
 import { useRouter } from "next/router"
+
 export interface IInputProps {
   className?: string;
   type?: string;
@@ -42,6 +43,17 @@ function Write() {
       }
       fetchData()
     }, [session])
+    //access server to aquire user id
+    useEffect(() => {
+      const fetchData = async () => {
+        const res = await fetch("/api/examples/protected")
+        const json = await res.json()
+        if (json.content) {
+          setContent(json.content)
+        }
+      }
+      fetchData()
+    }, )
     if (typeof window !== "undefined" && loading) return null
     if (!session) {
       return (
@@ -85,7 +97,8 @@ function Write() {
         <div></div>
      </div>
 
-     {/**<NovelByAuthor user_id = {user?.id}/>**/}
+     <NovelByAuthor user_id = {userData?.id}/>
+     {console.log(userData)}
       </div>);
 }
  export default Write
