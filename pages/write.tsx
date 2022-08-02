@@ -89,7 +89,6 @@ function Write() {
      </div>
 
      {/**<NovelByAuthor user_id = {userData?.id}/>**/}
-     {console.log(userData)}
       </div>);
 }
  export default Write
