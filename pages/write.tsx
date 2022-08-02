@@ -61,7 +61,7 @@ function Write() {
         <p>Loading...</p>
         </>)
     }
-    {console.log(session?.user?.email)}
+    {console.log("User " + session?.user?.email)}
     const user = session?.user
     return (
       <div>
