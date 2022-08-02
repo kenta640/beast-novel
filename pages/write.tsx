@@ -55,12 +55,12 @@ function Write() {
     }
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
   //const {data: userData, isLoading }= useFetchUser(session?.user?.email)
-    if (isLoading) {
+   /** if (isLoading) {
         return(<>
         <Navbar/>
         <p>Loading...</p>
         </>)
-    }
+    }*/
     const user = session?.user
     return (
       <div>
