@@ -16,7 +16,7 @@ export const useGetUsers = async () =>
 export const useFetchUser = (email) =>
   useQuery(
     ServerStateKeysEnum.User,
-    () => fetch(`https://fastify-server-app.herokuapp.com/user/${email}}`)
+    () => fetch(`https://fastify-server-app.herokuapp.com/user/isonsuisei2021@gmail.com}`)
     .then(x => x.json()) //Simple fetch function
   );
 
