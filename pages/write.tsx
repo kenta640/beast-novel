@@ -58,21 +58,22 @@ function Write() {
     //access server to aquire user id
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
    
-    useFetchUser(session?.user?.email)
-    console.log(session?.user?.email)
+    const {data: userData, isLoading}=useFetchUser(session?.user?.email)
+    
+    if(isLoading){
+      return(<>Loading...</>)
+    }
+    
+    console.log(userData)
     const user = session?.user
     return (
       <div>
       <Navbar/>
      <p>User: {
      JSON.stringify(user?.name)
-     
-     
      }</p>
      <p>{
      JSON.stringify(user?.email)
-     
-     
      }</p>
      <div className="grid grid-cols-5 gap-4">
        <div></div>
