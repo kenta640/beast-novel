@@ -3,6 +3,9 @@ import Link from "next/link"
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 export const NovelByAuthor= (user_id, isAuther) => {
+
+
+  
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
  const {data, isLoading, status} = useGetNovelByUser(user_id.user_id)
  return(

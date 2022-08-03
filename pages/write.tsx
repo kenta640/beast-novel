@@ -8,6 +8,8 @@ import {NovelByAuthor} from "../components/novelsByAuthor"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
+
+
 export interface IInputProps {
   className?: string;
   type?: string;
@@ -43,7 +45,7 @@ function Write() {
       }
       fetchData()
     }, [session])
-    //access server to aquire user id
+
 
     if (typeof window !== "undefined" && loading) return null
     if (!session) {
@@ -53,8 +55,11 @@ function Write() {
         </Layout>
       )
     }
-
-
+    //access server to aquire user id
+    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+   
+    useFetchUser(session?.user?.email)
+    console.log(session?.user?.email)
     const user = session?.user
     return (
       <div>
