@@ -22,7 +22,7 @@ export const useFetchUser = async (email) =>
       mode: 'cors',
       cache: 'no-cache'
     })
-    .then(res => res.json())
+    .then(res => {return res.json()})
     .catch(e=>{
       console.log(e)
     }) //Simple fetch function

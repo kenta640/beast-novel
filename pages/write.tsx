@@ -57,15 +57,10 @@ function Write() {
     }
     //access server to aquire user id
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-   
+    
+    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
     const {data: userData, isLoading}=useFetchUser(session?.user?.email)
     
-    if(isLoading){
-      return(<>Loading...</>)
-    }
-    
-  
-      console.log(userData)
     
     const user = session?.user
     return (
