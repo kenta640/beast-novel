@@ -64,7 +64,10 @@ function Write() {
       return(<>Loading...</>)
     }
     
-    console.log(userData)
+    if(userData){
+      console.log(userData)
+    }
+    
     const user = session?.user
     return (
       <div>
