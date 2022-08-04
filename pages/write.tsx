@@ -64,9 +64,8 @@ function Write() {
       return(<>Loading...</>)
     }
     
-    if(userData){
+  
       console.log(userData)
-    }
     
     const user = session?.user
     return (
