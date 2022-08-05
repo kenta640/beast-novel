@@ -88,7 +88,7 @@ function Write() {
         <div></div>
      </div>
 
-     <>{userData?.data}</>
+     <></>
      {/**<NovelByAuthor user_id = {userData?.id}/>**/}
       </div>);
 }
