@@ -62,7 +62,7 @@ function Write() {
     const {data: userData, isLoading}=useFetchUser(session?.user?.email)
     
 
-
+    console.log(userData)
     
     
     const user = session?.user
