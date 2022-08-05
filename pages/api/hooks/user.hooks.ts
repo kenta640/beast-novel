@@ -24,7 +24,7 @@ export const useFetchUser = async (email) =>{
       cache: 'no-cache'
     })
     .then(res => {
-      console.log(res.json())
+      
       return res.json()
     })
     .catch(e=>{

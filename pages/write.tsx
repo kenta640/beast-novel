@@ -61,7 +61,7 @@ function Write() {
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
     const {data: userData, isLoading}=useFetchUser(session?.user?.email)
     
-      //console.log(userData)
+      console.log(userData?.data)
 
     
     
