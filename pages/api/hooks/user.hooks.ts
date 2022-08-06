@@ -13,7 +13,7 @@ export const useGetUsers = async () =>
   );
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-export const useFetchUser = async (email) =>
+export const useFetchUser = (email) =>
   
   useQuery(
     ServerStateKeysEnum.User,
@@ -24,8 +24,9 @@ export const useFetchUser = async (email) =>
       cache: 'no-cache'
     })
     .then(res => {
-      console.log(res.json())
-      //res.json()
+      const response = res.json()
+      console.log(response)
+      return response
     }
     )
     .catch(e=>{
