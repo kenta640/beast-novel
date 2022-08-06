@@ -92,7 +92,7 @@ function Write() {
      </div>
 
      <></>
-     {/**<NovelByAuthor user_id = {userData?.id}/>**/}
+     {/**<NovelByAuthor user_id = {userData?.data?.email}/>**/}
       </div>);
 }
  export default Write

@@ -2,12 +2,12 @@ import {useGetNovelByUser} from "./api/novelByUser.hooks"
 import Link from "next/link"
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-export const NovelByAuthor= (user_id, isAuther) => {
+export const NovelByAuthor= (email) => {
 
 
   
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
- const {data, isLoading, status} = useGetNovelByUser(user_id.user_id)
+ const {data, isLoading, status} = useGetNovelByUser(email)
  return(
  <div className="grid grid-cols-5 gap-4">
           <div></div>
