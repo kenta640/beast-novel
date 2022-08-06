@@ -23,10 +23,10 @@ export const useFetchUser = async (email) =>
       mode: 'cors',
       cache: 'no-cache'
     })
-    .then(res => {
+    .then(res => 
       
-      return res.json()
-    })
+      res.json()
+    )
     .catch(e=>{
       console.log(e)
     }) //Simple fetch function
