@@ -65,7 +65,7 @@ function Write() {
       return <>Loading...</>
     }
 
-    console.log(userData)
+    //console.log(userData)
     
     
     const user = session?.user
@@ -92,7 +92,7 @@ function Write() {
      </div>
 
      <></>
-     {/**<NovelByAuthor user_id = {userData?.data?.email}/>**/}
+     {<NovelByAuthor user_id = {userData?.data?.id}/>}
       </div>);
 }
  export default Write
