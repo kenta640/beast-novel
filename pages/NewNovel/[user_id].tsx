@@ -63,14 +63,15 @@ function NewNovel() {
 
         if(isLoading) {
           console.log("User Data Loading...")
+        } else{
+          console.log(userData?.data?.id)
+          await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
+          {
+              title: newNovel.title,
+              summary: newNovel.summary,
+              user_id: userData?.data?.id,
+          }).catch(errorUtils.getError)).data
         }
-        console.log(userData?.data?.id)
-        return await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
-        {
-            title: newNovel.title,
-            summary: newNovel.summary,
-            user_id: userData?.data?.id,
-        }).catch(errorUtils.getError)).data
       }
     
     return (
