@@ -10,6 +10,7 @@ import { useSession } from "next-auth/react"
 import Layout from "../../components/layout"
 import AccessDenied from "../../components/access-denied"
 import {errorUtils} from "../../components/axiosErrorUtils"
+import {useFetchUser} from "../api/hooks/user.hooks"
 type Inputs = {
     title: string,
     summary: string,
@@ -25,43 +26,52 @@ function NewNovel() {
             setValue, 
             formState: { errors } 
         } = useForm<Inputs>({mode: "onBlur"});   
-    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-        const postNovel= async (newNovel) =>
-        
-                await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
-                {
-                    title: newNovel.title,
-                    summary: newNovel.summary,
-                    user_id: 24,
-                }).catch(errorUtils.getError)).data
 
-                const { data: session, status } = useSession()
-                const loading = status === "loading"
-                const [content, setContent] = useState()
-              
-                // Fetch content from protected route
-                useEffect(() => {
-                  const fetchData = async () => {
-                    const res = await fetch("/api/examples/protected")
-                    const json = await res.json()
-                    if (json.content) {
-                      setContent(json.content)
-                    }
-                  }
-                  fetchData()
-                }, [session])
-              
-                // When rendering client side don't display anything until loading is complete
-                if (typeof window !== "undefined" && loading) return null
-              
-                // If no session exists, display access denied message
-                if (!session) {
-                  return (
-                    <Layout>
-                      <AccessDenied />
-                    </Layout>
-                  )
-                }
+
+    const { data: session, status } = useSession()
+    const loading = status === "loading"
+    const [content, setContent] = useState()
+  
+    // Fetch content from protected route
+    useEffect(() => {
+      const fetchData = async () => {
+        const res = await fetch("/api/examples/protected")
+        const json = await res.json()
+        if (json.content) {
+          setContent(json.content)
+        }
+      }
+      fetchData()
+    }, [session])
+  
+    // When rendering client side don't display anything until loading is complete
+    if (typeof window !== "undefined" && loading) return null
+  
+    // If no session exists, display access denied message
+    if (!session) {
+      return (
+        <Layout>
+          <AccessDenied />
+        </Layout>
+      )
+    }
+
+                    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+        const postNovel= async (newNovel) =>{
+        
+        const {data: userData, isLoading} = useFetchUser(session?.user?.email)
+
+        if(isLoading) {
+          return<>User Data Loading...</>
+        }
+
+        return await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
+        {
+            title: newNovel.title,
+            summary: newNovel.summary,
+            user_id: userData?.data?.id,
+        }).catch(errorUtils.getError)).data
+      }
     
     return (
         <div><Navbar/>
