@@ -62,9 +62,9 @@ function NewNovel() {
         const {data: userData, isLoading} = useFetchUser(session?.user?.email)
 
         if(isLoading) {
-          return<>User Data Loading...</>
+          console.log("User Data Loading...")
         }
-
+        console.log(userData?.data?.id)
         return await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
         {
             title: newNovel.title,
