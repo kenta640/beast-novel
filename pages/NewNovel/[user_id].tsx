@@ -56,14 +56,18 @@ function NewNovel() {
       )
     }
 
+
+    const {data: userData, isLoading} = useFetchUser(session?.user?.email)
+
+    if(isLoading){
+      <>
+      User Data Loading
+      </>
+    }
                     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
         const postNovel= async (newNovel) =>{
         
-        const {data: userData, isLoading} = useFetchUser(session?.user?.email)
-
-        if(isLoading) {
-          console.log("User Data Loading...")
-        } else{
+      
           console.log(userData?.data?.id)
           await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
           {
@@ -71,7 +75,7 @@ function NewNovel() {
               summary: newNovel.summary,
               user_id: userData?.data?.id,
           }).catch(errorUtils.getError)).data
-        }
+        
       }
     
     return (
