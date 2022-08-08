@@ -37,4 +37,4 @@ const UserDetails=()=> {
     </>)
 }
 
-export default UserPage;
+export default UserDetails;
