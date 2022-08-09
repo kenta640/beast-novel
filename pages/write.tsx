@@ -29,7 +29,7 @@ function Write() {
   // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
   const handleClick = (e, path) => {
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-    if (path === `/NewNovel/${encodeURIComponent(user_id)}`) {
+    if (path === `/newNovel`) {
       console.log("I clicked on the About Page");
     }
   };
