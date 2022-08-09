@@ -9,7 +9,7 @@ const UserDetails=()=> {
     const { data: session, status } = useSession()
     const { user_id } = router.query
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-    console.log(useFetchUserById(user_id))
+    //console.log(useFetchUserById(user_id))
      // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
     
     const {data: userData, isLoading }= useFetchUserById(user_id)

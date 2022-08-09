@@ -7,8 +7,9 @@ import Link from "next/link"
 const EditNovel=()=> {
     const router = useRouter()
     const { user_id } = router.query
-    const {data: episodes, isLoading} = useGetEpisodes(user_id)
     console.log(user_id)
+    const {data: episodes, isLoading} = useGetEpisodes(user_id)
+    
     return(<>
     <Navbar/>
     <div className="grid grid-cols-5 gap-4">

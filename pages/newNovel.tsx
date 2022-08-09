@@ -3,7 +3,6 @@ import Link from "next/link"
 import {useAddNovel} from './api/hooks/novel.hooks'
 import {useForm, SubmitHandler} from "react-hook-form"
 import {useMutation} from "react-query"
-import router from 'next/router'
 import axios from 'axios'
 import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
