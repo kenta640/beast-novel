@@ -6,9 +6,9 @@ import Link from "next/link"
 
 const EditNovel=()=> {
     const router = useRouter()
-    const { user_id } = router.query
-    console.log(user_id)
-    const {data: episodes, isLoading} = useGetEpisodes(user_id)
+    const { novel_id } = router.query
+    console.log(novel_id)
+    const {data: episodes, isLoading} = useGetEpisodes(novel_id)
     
     return(<>
     <Navbar/>
