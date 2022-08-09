@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react"
 const UserDetails=()=> {
     const router = useRouter()
     const { data: session, status } = useSession()
-    
+    const { user_id } = router.query
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
     console.log(useFetchUserById(user_id))
      // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
