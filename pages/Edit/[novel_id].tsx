@@ -13,7 +13,7 @@ const EditNovel=()=> {
     <div className="grid grid-cols-5 gap-4">
                 <div></div>
                 <div className="col-span-3">
-                    {/** 
+                    {
                         !isLoading? (
                             <ul>
                                 {// @ts-ignore to ignore the type checking errors on the next line in a TypeScript
@@ -31,7 +31,7 @@ const EditNovel=()=> {
                                 }
                             </ul>
                         ) : 'Loading...'
-                    */}
+                    }
                 </div>
                 <div></div>
             </div>
