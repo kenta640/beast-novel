@@ -25,7 +25,7 @@ export const useFetchUserById = (id) =>
     })
     .then(res => {
       const response = res.json()
-      console.log(response)
+      //console.log(response)
       return response
     }
     )
@@ -47,7 +47,7 @@ export const useFetchUser = (email) =>
     })
     .then(res => {
       const response = res.json()
-      console.log(response)
+      //console.log(response)
       return response
     }
     )
