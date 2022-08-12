@@ -90,7 +90,7 @@ function NewNovel() {
             {...register("episodeNum")}
             id="episodeNum" type="text" autoComplete="name"  
             /><br/>
-        </div>
+        
         <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="title">Title</label>
         <input className="py-2 px-3 shadow w-full"
             {...register("title")}
