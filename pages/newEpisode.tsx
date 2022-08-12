@@ -11,6 +11,7 @@ import AccessDenied from "../components/access-denied"
 import {errorUtils} from "../components/axiosErrorUtils"
 import {useFetchUser} from "./api/hooks/user.hooks"
 type Inputs = {
+    episodeNum: number,
     title: string,
     summary: string,
     user_id: number
@@ -84,12 +85,19 @@ function NewNovel() {
        <form onSubmit={handleSubmit(postNovel)}className="grid grid-cols-5 gap-4" >
         <div></div>
         <div className="col-span-3">
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="episodeNum">Episode Number</label>
+        <input className="py-2 px-3 shadow w-full"
+            {...register("episodeNum")}
+            id="episodeNum" type="text" autoComplete="name"  
+            /><br/>
+        </div>
         <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="title">Title</label>
         <input className="py-2 px-3 shadow w-full"
             {...register("title")}
             id="title" type="text" autoComplete="name" required 
             defaultValue="Title"/><br/>
         </div>
+
         <div></div>
         <div></div>
         <div className="col-span-3">
