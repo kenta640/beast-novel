@@ -13,13 +13,13 @@ import {useFetchUser} from "./api/hooks/user.hooks"
 type Inputs = {
     episodeNum: number,
     title: string,
-    summary: string,
+    header: string,
     user_id: number
   };
 
 
 
-function NewNovel() {
+function NewEpisode() {
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
     const { register, 
             handleSubmit, 
@@ -69,7 +69,7 @@ function NewNovel() {
         
       
           console.log(userData?.data?.id)
-          await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
+          await (await axios.post('https://fastify-server-app.herokuapp.com/addEpisode', 
           {
               title: newEpisode.title,
               summary: newEpisode.summary,
@@ -101,10 +101,10 @@ function NewNovel() {
         <div></div>
         <div></div>
         <div className="col-span-3">
-        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="summary">Summary</label>
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="header">Header</label>
         <textarea className='py-2 px-3 shadow w-full' required 
-                {...register("summary")}>
-            Write the summary of your novel.
+                {...register("header")}>
+            Write the summary of your episode.
         </textarea><br/>
         </div>
         <div></div>
@@ -122,4 +122,4 @@ function NewNovel() {
     </div>
       </div>);
 }
- export default NewNovel
+ export default NewEpisode
