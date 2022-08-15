@@ -12,7 +12,7 @@ import {errorUtils} from "../components/axiosErrorUtils"
 import {useFetchUser} from "./api/hooks/user.hooks"
 type Inputs = {
     episodeNum: number,
-    title: string,
+    episode_title: string,
     header: string,
     user_id: number
   };
@@ -71,8 +71,8 @@ function NewEpisode() {
           console.log(userData?.data?.id)
           await (await axios.post('https://fastify-server-app.herokuapp.com/addEpisode', 
           {
-              title: newEpisode.title,
-              summary: newEpisode.summary,
+              episode_title: newEpisode.episode_title,
+              header: newEpisode.header,
               user_id: userData?.data?.id,
           }).catch(errorUtils.getError)).data
         
@@ -91,11 +91,11 @@ function NewEpisode() {
             id="episodeNum" type="text" autoComplete="name"  
             /><br/>
         
-        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="title">Title</label>
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="episode_title">Title</label>
         <input className="py-2 px-3 shadow w-full"
-            {...register("title")}
-            id="title" type="text" autoComplete="name" required 
-            defaultValue="Title"/><br/>
+            {...register("episode_title")}
+            id="episode_title" type="text" autoComplete="name" required 
+            defaultValue="Episode Title"/><br/>
         </div>
 
         <div></div>
