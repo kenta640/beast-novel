@@ -14,7 +14,7 @@ type Inputs = {
     episodeNum: number,
     episode_title: string,
     header: string,
-    user_id: number
+    novel_id: number
   };
 
 
@@ -73,7 +73,7 @@ function NewEpisode() {
           {
               episode_title: newEpisode.episode_title,
               header: newEpisode.header,
-              user_id: userData?.data?.id,
+              novel_id: userData?.data?.id,
           }).catch(errorUtils.getError)).data
         
       }
