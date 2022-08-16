@@ -1,15 +1,16 @@
-import {Navbar} from '../components/Navbar'
+import {Navbar} from '../../../../components/Navbar'
 import Link from "next/link"
-import {useAddNovel} from './api/hooks/novel.hooks'
+import {useAddNovel} from '../../../api/hooks/novel.hooks'
 import {useForm, SubmitHandler} from "react-hook-form"
 import {useMutation} from "react-query"
 import axios from 'axios'
 import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
-import Layout from "../components/layout"
-import AccessDenied from "../components/access-denied"
-import {errorUtils} from "../components/axiosErrorUtils"
-import {useFetchUser} from "./api/hooks/user.hooks"
+import Layout from "../../../../components/layout"
+import AccessDenied from "../../../../components/access-denied"
+import {errorUtils} from "../../../../components/axiosErrorUtils"
+import {useFetchUser} from "../../../api/hooks/user.hooks"
+import { useRouter } from 'next/router'
 type Inputs = {
     episodeNum: number,
     episode_title: string,
@@ -20,13 +21,15 @@ type Inputs = {
 
 
 function NewEpisode() {
+
+  const router = useRouter()
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
     const { register, 
             handleSubmit, 
             setValue, 
             formState: { errors } 
         } = useForm<Inputs>({mode: "onBlur"});   
-
+    const { novel_id } = router.query
 
     const { data: session, status } = useSession()
     const loading = status === "loading"
@@ -57,15 +60,11 @@ function NewEpisode() {
     }
 
 
-    const {data: userData, isLoading} = useFetchEpisode(session?.user?.email)
+    //const {data: userData, isLoading} = useAddEpisode(364)
 
-    if(isLoading){
-      <>
-      User Data Loading
-      </>
-    }
+
                     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-        const postEpisode= async (newEpisode) =>{
+        const useAddEpisode= async (newEpisode) =>{
         
       
           //console.log(userData?.data?.id)
@@ -73,7 +72,7 @@ function NewEpisode() {
           {
               episode_title: newEpisode.episode_title,
               header: newEpisode.header,
-              novel_id: ,
+              novel_id: 
           }).catch(errorUtils.getError)).data
         
       }
@@ -82,7 +81,7 @@ function NewEpisode() {
         <div><Navbar/>
         <div >
        
-       <form onSubmit={handleSubmit(postNovel)}className="grid grid-cols-5 gap-4" >
+       <form onSubmit={handleSubmit(useAddEpisode)}className="grid grid-cols-5 gap-4" >
         <div></div>
         <div className="col-span-3">
         <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="episodeNum">Episode Number</label>

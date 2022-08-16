@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import {useGetEpisodes} from "../api/hooks/episode.hooks"
+import {useFetchEpisodes} from "../api/hooks/episode.hooks"
 import {Navbar} from "../../components/Navbar"
 import { json } from "stream/consumers"
 import Link from "next/link"
@@ -18,7 +18,7 @@ const NovelPage : React.FunctionComponent <RouteComponentProps<any>>=()=> {
 
 
     //console.log(novel_id)
-    const {data: episodes, isLoading} = useGetEpisodes(query.novel_id)
+    const {data: episodes, isLoading} = useFetchEpisodes(query.novel_id)
 
     return (
         <div>

@@ -14,7 +14,7 @@ const EditNovel=()=> {
     <Navbar/>
     <div className="grid grid-cols-5 gap-4">
                 <div></div>
-                <Link href='/newEpisode'>
+                <Link href='/NewEpisode'>
                 <button
                     className="bg-transparent hover:bg-red-300 text-red-400 font-semibold hover:text-white py-2 px-4 border border-red-300 hover:border-transparent rounded">
                     New Episode
