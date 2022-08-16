@@ -1,15 +1,15 @@
-import {Navbar} from '../../../../components/Navbar'
+import {Navbar} from '../../../components/Navbar'
 import Link from "next/link"
-import {useAddNovel} from '../../../api/hooks/novel.hooks'
+import {useAddNovel} from '../../api/hooks/novel.hooks'
 import {useForm, SubmitHandler} from "react-hook-form"
 import {useMutation} from "react-query"
 import axios from 'axios'
 import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
-import Layout from "../../../../components/layout"
-import AccessDenied from "../../../../components/access-denied"
-import {errorUtils} from "../../../../components/axiosErrorUtils"
-import {useFetchUser} from "../../../api/hooks/user.hooks"
+import Layout from "../../../components/layout"
+import AccessDenied from "../../../components/access-denied"
+import {errorUtils} from "../../../components/axiosErrorUtils"
+import {useFetchUser} from "../../api/hooks/user.hooks"
 import { useRouter } from 'next/router'
 type Inputs = {
     episodeNum: number,
@@ -72,7 +72,7 @@ function NewEpisode() {
           {
               episode_title: newEpisode.episode_title,
               header: newEpisode.header,
-              novel_id: 
+              novel_id: novel_id
           }).catch(errorUtils.getError)).data
         
       }
