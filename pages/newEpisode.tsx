@@ -57,7 +57,7 @@ function NewEpisode() {
     }
 
 
-    const {data: userData, isLoading} = useFetchUser(session?.user?.email)
+    const {data: userData, isLoading} = useFetchEpisode(session?.user?.email)
 
     if(isLoading){
       <>
@@ -65,15 +65,15 @@ function NewEpisode() {
       </>
     }
                     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-        const postNovel= async (newEpisode) =>{
+        const postEpisode= async (newEpisode) =>{
         
       
-          console.log(userData?.data?.id)
+          //console.log(userData?.data?.id)
           await (await axios.post('https://fastify-server-app.herokuapp.com/addEpisode', 
           {
               episode_title: newEpisode.episode_title,
               header: newEpisode.header,
-              novel_id: userData?.data?.id,
+              novel_id: ,
           }).catch(errorUtils.getError)).data
         
       }

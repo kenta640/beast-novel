@@ -1,14 +1,14 @@
 
 import { useRouter } from 'next/router'
 import {Navbar} from '../../components/Navbar'
-import {useGetEpisodes} from "../api/hooks/episode.hooks"
+import {useFetchEpisodes} from "../api/hooks/episode.hooks"
 import Link from "next/link"
 
 const EditNovel=()=> {
     const router = useRouter()
     const { novel_id } = router.query
     console.log(novel_id)
-    const {data: episodes, isLoading} = useGetEpisodes(novel_id)
+    const {data: episodes, isLoading} = useFetchEpisodes(novel_id)
     
     return(<>
     <Navbar/>
