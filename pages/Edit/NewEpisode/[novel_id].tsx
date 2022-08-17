@@ -79,7 +79,46 @@ function NewEpisode() {
     
     return (
         <div><Navbar/>
+        <div >
+       
+       <form onSubmit={handleSubmit(useAddEpisode)}className="grid grid-cols-5 gap-4" >
+        <div></div>
+        <div className="col-span-3">
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="episodeNum">Episode Number</label>
+        <input className="py-2 px-3 shadow w-full"
+            {...register("episodeNum")}
+            id="episodeNum" type="text" autoComplete="name"  
+            /><br/>
+        
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="episode_title">Title</label>
+        <input className="py-2 px-3 shadow w-full"
+            {...register("episode_title")}
+            id="episode_title" type="text" autoComplete="name" required 
+            defaultValue="Episode Title"/><br/>
+        </div>
 
+        <div></div>
+        <div></div>
+        <div className="col-span-3">
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="header">Header</label>
+        <textarea className='py-2 px-3 shadow w-full' required 
+                {...register("header")}>
+            Write the summary of your episode.
+        </textarea><br/>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+        
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
+        
+        
+        
+        </form>
+        
+
+    </div>
       </div>);
 }
  export default NewEpisode
