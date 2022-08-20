@@ -64,7 +64,7 @@ function NewEpisode() {
     //const {data: userData, isLoading} = useAddEpisode(364)
 
 
-                    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+         // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
         const useAddEpisode= async (newEpisode) =>{
         
       
@@ -77,6 +77,20 @@ function NewEpisode() {
           }).catch(errorUtils.getError)).data
         
       }
+
+               // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+               const useAddText= async (newText) =>{
+        
+      
+                //console.log(userData?.data?.id)
+                await (await axios.post('https://fastify-server-app.herokuapp.com/addEpisode', 
+                {
+                    text: newText.text
+                    
+                }).catch(errorUtils.getError)).data
+              
+            }
+
     
     return (
         <div><Navbar/>
