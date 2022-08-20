@@ -109,7 +109,6 @@ function NewEpisode() {
         </div>
         <div></div>
         <div></div>
-        <div></div>
         <div className="col-span-3">
         <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="text">Text</label>
         <textarea className='py-2 px-3 shadow w-full' required 
