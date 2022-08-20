@@ -15,7 +15,8 @@ type Inputs = {
     episodeNum: number,
     episode_title: string,
     header: string,
-    novel_id: number
+    novel_id: number,
+    text: string
   };
 
 
@@ -109,7 +110,13 @@ function NewEpisode() {
         <div></div>
         <div></div>
         <div></div>
-
+        <div className="col-span-3">
+        <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="text">Text</label>
+        <textarea className='py-2 px-3 shadow w-full' required 
+                {...register("text")}>
+            Write the text of your episode.
+        </textarea><br/>
+        </div>
         
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit</button>
         
