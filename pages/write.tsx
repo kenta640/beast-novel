@@ -58,12 +58,12 @@ function Write({ session }: { session: Session }) {
     return (
       <div>
       <Navbar/>
-     <p>User: {
+     <pre>User: {
      JSON.stringify(user?.name)
-     }</p>
-     <p>{
+     }</pre>
+     <pre>{
      JSON.stringify(user?.email)
-     }</p>
+     }</pre>
      <div className="grid grid-cols-5 gap-4">
        <div></div>
        <div></div>
@@ -78,7 +78,7 @@ function Write({ session }: { session: Session }) {
      </div>
 
      <></>
-     {<NovelByAuthor user_id = {userData?.data?.id}/>}
+     <pre>{<NovelByAuthor user_id = {userData?.data?.id}/>}</pre>
       </div>);
 }
  export default Write
