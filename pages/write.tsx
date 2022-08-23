@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
+import { unstable_getServerSession } from "next-auth/next"
 import Layout from "../components/layout"
 import AccessDenied from "../components/access-denied"
 import {Navbar} from '../components/Navbar'
@@ -7,7 +8,7 @@ import { useFetchUser, } from "./api/hooks/user.hooks"
 import {NovelByAuthor} from "../components/novelsByAuthor"
 import Link from "next/link"
 import { useRouter } from "next/router"
-
+import { authOptions } from "./api/auth/[...nextauth]"
 
 
 export interface IInputProps {
@@ -19,25 +20,26 @@ export interface IInputProps {
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 
-export async function getServerSideProps({ req, res }) {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+
 
   return {
     props: {
-      time: new Date().toISOString(),
+      session: await unstable_getServerSession(
+        context.req,
+        context.res,
+        authOptions
+      ),
     },
   }
 }
 
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-function Write() {
+function Write({ session }: { session: Session }) {
 
-  const { data: session, status } = useSession()
-  const loading = status === "loading"
+  
+  
   const [content, setContent] = useState()
 
 
@@ -54,7 +56,7 @@ function Write() {
     }, [session])
 
 
-    if (typeof window !== "undefined" && loading) return null
+    
     if (!session) {
       return (
         <Layout>
