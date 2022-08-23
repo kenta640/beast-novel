@@ -39,31 +39,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 function Write({ session }: { session: Session }) {
 
   
-  
-  const [content, setContent] = useState()
 
 
-    // Fetch content from protected route
-    useEffect(() => {
-      const fetchData = async () => {
-        const res = await fetch("/api/examples/protected")
-        const json = await res.json()
-        if (json.content) {
-          setContent(json.content)
-        }
-      }
-      fetchData()
-    }, [session])
-
-
-    
-    if (!session) {
-      return (
-        <Layout>
-          <AccessDenied />
-        </Layout>
-      )
-    }
     //access server to aquire user id
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
     
