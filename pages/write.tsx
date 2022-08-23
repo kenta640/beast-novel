@@ -39,13 +39,7 @@ function Write() {
   const { data: session, status } = useSession()
   const loading = status === "loading"
   const [content, setContent] = useState()
-  // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-  const handleClick = (e, path) => {
-    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-    if (path === `/newNovel`) {
-      console.log("I clicked on the About Page");
-    }
-  };
+
 
     // Fetch content from protected route
     useEffect(() => {
