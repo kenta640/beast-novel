@@ -17,11 +17,24 @@ export interface IInputProps {
   onChange?: (e?: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
+// @ts-ignore to ignore the type checking errors on the next line in a TypeScript
+
+export async function getServerSideProps({ req, res }) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+
+  return {
+    props: {
+      time: new Date().toISOString(),
+    },
+  }
+}
+
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 function Write() {
-  const router = useRouter();
-  const { user_id } = router.query
 
   const { data: session, status } = useSession()
   const loading = status === "loading"
