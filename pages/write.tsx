@@ -19,21 +19,23 @@ export interface IInputProps {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await unstable_getServerSession(
-    context.req,
-    context.res,
-    authOptions
-  )
+
 
   return {
     props: {
-      userData: session
+      props: {
+        session: await unstable_getServerSession(
+          context.req,
+          context.res,
+          authOptions
+        ),
+      },
     },
   }
 }
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-function Write({ userData }: { userData: userData }) {
+function Write({ session }: { session: Session }) {
   const router = useRouter();
   const { user_id } = router.query
 
@@ -53,15 +55,15 @@ function Write({ userData }: { userData: userData }) {
     //console.log(userData)
     
     
-    const user = userData
+    
     return (
       <div>
       <Navbar/>
      <pre>User: {
-     JSON.stringify(user?.name)
+     JSON.stringify(session?.props?.name)
      }</pre>
      <pre>{
-     JSON.stringify(user?.email)
+     JSON.stringify(session?.props?.email)
      }</pre>
      <div className="grid grid-cols-5 gap-4">
        <div></div>
