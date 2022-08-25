@@ -47,10 +47,7 @@ function Write({ session }: { session: Session }) {
     
     // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
    
-    
-    if(isLoading){
-      return <>Loading...</>
-    }
+
 
     //console.log(userData)
     
