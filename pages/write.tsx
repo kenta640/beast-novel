@@ -57,10 +57,7 @@ function Write({ session }: { session: Session }) {
       <div>
       <Navbar/>
      <pre>User: {
-     JSON.stringify(session?.props?.name)
-     }</pre>
-     <pre>{
-     JSON.stringify(session?.props?.email)
+     JSON.stringify(session?.name)
      }</pre>
      <div className="grid grid-cols-5 gap-4">
        <div></div>
