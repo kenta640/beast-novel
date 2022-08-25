@@ -36,7 +36,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-function Write({ session }: { session: Session }) {
+function Write({ userData }: { userData: userData }) {
   const router = useRouter();
   const { user_id } = router.query
 
@@ -56,15 +56,15 @@ function Write({ session }: { session: Session }) {
     //console.log(userData)
     
     
-    const user = session?.user
+    const user = userData
     return (
       <div>
       <Navbar/>
      <p>User: {
-     JSON.stringify(user?.name)
+     JSON.stringify(user?.data?.name)
      }</p>
      <p>{
-     JSON.stringify(user?.email)
+     JSON.stringify(user?.data?.email)
      }</p>
      <div className="grid grid-cols-5 gap-4">
        <div></div>
@@ -80,7 +80,7 @@ function Write({ session }: { session: Session }) {
      </div>
 
      <></>
-     {<NovelByAuthor user_id = {userData?.data?.id}/>}
+     {<NovelByAuthor user_id = {user.data?.id}/>}
       </div>);
 }
  export default Write
