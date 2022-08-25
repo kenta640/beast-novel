@@ -24,13 +24,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     context.res,
     authOptions
   )
-  const {data: userData, isLoading}=useFetchUser(session?.user?.email)
-  if(isLoading){
-  
-  }
+
   return {
     props: {
-      userData: userData
+      userData: session
     },
   }
 }
@@ -60,12 +57,12 @@ function Write({ userData }: { userData: userData }) {
     return (
       <div>
       <Navbar/>
-     <p>User: {
-     JSON.stringify(user?.data?.name)
-     }</p>
-     <p>{
-     JSON.stringify(user?.data?.email)
-     }</p>
+     <pre>User: {
+     JSON.stringify(user?.name)
+     }</pre>
+     <pre>{
+     JSON.stringify(user?.email)
+     }</pre>
      <div className="grid grid-cols-5 gap-4">
        <div></div>
        <div></div>
@@ -80,7 +77,7 @@ function Write({ userData }: { userData: userData }) {
      </div>
 
      <></>
-     {<NovelByAuthor user_id = {user.data?.id}/>}
+     {/**<NovelByAuthor user_id = {user.}/>**/}
       </div>);
 }
  export default Write
