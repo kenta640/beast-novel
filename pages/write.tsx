@@ -10,7 +10,7 @@ import { useRouter } from "next/router"
 import { unstable_getServerSession } from "next-auth/next"
 import { authOptions } from "./api/auth/[...nextauth]"
 import type { GetServerSidePropsContext } from "next"
-
+import type { Session } from "next-auth"
 export interface IInputProps {
   className?: string;
   type?: string;
