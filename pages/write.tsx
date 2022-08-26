@@ -73,6 +73,18 @@ export default function ServerSidePage({ session }: { session: Session }) {
       <Navbar/>
       <p>User: </p>
       <pre>{JSON.stringify(session, null, 2)}</pre>
+      <div className="grid grid-cols-5 gap-4">
+       <div></div>
+       <div></div>
+       <Link href="/newNovel">
+        <button
+        className="bg-transparent hover:bg-red-300 text-red-400 font-semibold hover:text-white py-2 px-4 border border-red-300 hover:border-transparent rounded">
+          New
+        </button>
+       </Link>
+        <div></div>
+        <div></div>
+     </div>
     </div>
   )
 }
