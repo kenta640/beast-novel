@@ -57,7 +57,7 @@ function Write({ session }: { session: Session }) {
       <div>
       <Navbar/>
      <pre>User: {
-     JSON.stringify(session?.name)
+     JSON.stringify(session, null, 2)
      }</pre>
      <div className="grid grid-cols-5 gap-4">
        <div></div>
