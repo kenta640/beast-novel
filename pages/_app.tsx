@@ -12,7 +12,7 @@ const queryCache = new QueryClient({
     },
   },
 });
-function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
+function MyApp({ Component, pageProps}: AppProps) {
   return (
   <SessionProvider session={pageProps.session}>
     <QueryClientProvider client={queryCache}>
