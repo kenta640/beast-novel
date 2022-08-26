@@ -43,9 +43,6 @@ function Write({ session }: { session: Session }) {
   
 
     //access server to aquire user id
-    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-    
-    // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
    
 
 
@@ -56,7 +53,8 @@ function Write({ session }: { session: Session }) {
     return (
       <div>
       <Navbar/>
-     <pre>User: {
+      <p>User: </p>
+     <pre>{
      JSON.stringify(session, null, 2)
      }</pre>
      <div className="grid grid-cols-5 gap-4">
