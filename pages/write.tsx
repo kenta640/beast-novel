@@ -18,38 +18,12 @@ export interface IInputProps {
   onChange?: (e?: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
 
-
-  return {
-    props: {
-      props: {
-        session: await unstable_getServerSession(
-          context.req,
-          context.res,
-          authOptions
-        ),
-      },
-    },
-  }
-}
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 function Write({ session }: { session: Session }) {
   const router = useRouter();
   const { user_id } = router.query
-
-  
-  
-
-    //access server to aquire user id
-   
-
-
-    //console.log(userData)
-    
-    
-    
     return (
       <div>
       <Navbar/>
@@ -75,3 +49,17 @@ function Write({ session }: { session: Session }) {
       </div>);
 }
  export default Write
+
+ export async function getServerSideProps(context: GetServerSidePropsContext) {
+  return {
+    props: {
+      props: {
+        session: await unstable_getServerSession(
+          context.req,
+          context.res,
+          authOptions
+        ),
+      },
+    },
+  }
+}
