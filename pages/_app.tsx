@@ -14,7 +14,7 @@ const queryCache = new QueryClient({
 });
 function MyApp({ Component, pageProps: {session, ...pageProps} }: AppProps) {
   return (
-  <SessionProvider session={session}>
+  <SessionProvider session={pageProps.session}>
     <QueryClientProvider client={queryCache}>
     <Component {...pageProps} />
     </QueryClientProvider>
