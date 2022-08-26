@@ -65,7 +65,7 @@ function Write({ session }: { session: Session }) {
 }
 **/
 
-export default function ServerSidePage({ session }: { session: Session }) {
+export default function Write({ session }: { session: Session }) {
   // As this page uses Server Side Rendering, the `session` will be already
   // populated on render without needing to go through a loading stage.
   return (
