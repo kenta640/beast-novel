@@ -71,6 +71,7 @@ export default function ServerSidePage({ session }: { session: Session }) {
   return (
     <div>
       <Navbar/>
+      <p>User: </p>
       <pre>{JSON.stringify(session, null, 2)}</pre>
     </div>
   )
