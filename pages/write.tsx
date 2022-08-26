@@ -19,7 +19,7 @@ export interface IInputProps {
 }
 
 
-
+/**
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
 function Write({ session }: { session: Session }) {
   const router = useRouter();
@@ -45,7 +45,7 @@ function Write({ session }: { session: Session }) {
      </div>
 
      <></>
-     {/**<NovelByAuthor user_id = {user.}/>**/}
+     {<NovelByAuthor user_id = {user.}/>*}
       </div>);
 }
  export default Write
@@ -63,5 +63,28 @@ function Write({ session }: { session: Session }) {
     },
   }
 }
+**/
 
+export default function ServerSidePage({ session }: { session: Session }) {
+  // As this page uses Server Side Rendering, the `session` will be already
+  // populated on render without needing to go through a loading stage.
+  return (
+    <div>
+      <Navbar/>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
+    </div>
+  )
+}
 
+// Export the `session` prop to use sessions with Server Side Rendering
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  return {
+    props: {
+      session: await unstable_getServerSession(
+        context.req,
+        context.res,
+        authOptions
+      ),
+    },
+  }
+}
