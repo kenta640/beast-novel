@@ -67,6 +67,10 @@ function Write({ session }: { session: Session }) {
 
 export default function Write({ session }: { session: Session }) {
   const {data: userData, isLoading} = useFetchUser(session?.user?.email)
+  if(isLoading){
+    console.log("Loading")
+  }
+  console.log(userData)
   return (
     <div>
       <Navbar/>
@@ -83,7 +87,7 @@ export default function Write({ session }: { session: Session }) {
        </Link>
         <div></div>
         <div></div>
-        {<NovelByAuthor user_id = {user.}/>*}
+        {<NovelByAuthor user_id = {userData?.user?.id}/>}
      </div>
     </div>
   )
