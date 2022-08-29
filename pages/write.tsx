@@ -66,12 +66,13 @@ function Write({ session }: { session: Session }) {
 **/
 
 export default function Write({ session }: { session: Session }) {
+  console.log(session?.user?.email)
   const {data: userData, isLoading} = useFetchUser(session?.user?.email)
   if(isLoading){
     console.log("Loading")
     return(<>Loading...</>)
   }
-  console.log(userData)
+  
   return (
     <div>
       <Navbar/>

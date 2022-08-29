@@ -2,7 +2,7 @@ import {useGetNovelByUser} from "./api/novelByUser.hooks"
 import Link from "next/link"
 
 // @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-export const NovelByAuthor= (user_id, isAuther) => {
+export const NovelByAuthor= (user_id) => {
 
 
   
