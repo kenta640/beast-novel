@@ -19,80 +19,37 @@ export interface IInputProps {
 }
 
 
-/**
-// @ts-ignore to ignore the type checking errors on the next line in a TypeScript
-function Write({ session }: { session: Session }) {
-  const router = useRouter();
-  const { user_id } = router.query
-    return (
-      <div>
-      <Navbar/>
-      <p>User: </p>
-     <pre>{
-     JSON.stringify(session, null, 2)
-     }</pre>
-     <div className="grid grid-cols-5 gap-4">
-       <div></div>
-       <div></div>
-       <Link href="/newNovel">
-        <button
-        className="bg-transparent hover:bg-red-300 text-red-400 font-semibold hover:text-white py-2 px-4 border border-red-300 hover:border-transparent rounded">
-          New
-        </button>
-       </Link>
-        <div></div>
-        <div></div>
-     </div>
-
-     <></>
-     {<NovelByAuthor user_id = {user.}/>*}
-      </div>);
-}
- export default Write
-
- export async function getServerSideProps(context: GetServerSidePropsContext) {
-  return {
-    props: {
-      props: {
-        session: await unstable_getServerSession(
-          context.req,
-          context.res,
-          authOptions
-        ),
-      },
-    },
-  }
-}
-**/
 
 export default function Write({ session }: { session: Session }) {
   console.log(session?.user?.email)
-  const {data: userData, isLoading} = useFetchUser(session?.user?.email)
-  if(isLoading){
-    console.log("Loading")
-    return(<>Loading...</>)
+  if(session != undefined) {
+    const {data: userData, isLoading} = useFetchUser(session?.user?.email)
+    if(isLoading){
+      console.log("Loading")
+      return(<>Loading...</>)
+    }
+    return (
+      <div>
+        <Navbar/>
+        <p>User: </p>
+        <pre>{JSON.stringify(session, null, 2)}</pre>
+        <div className="grid grid-cols-5 gap-4">
+         <div></div>
+         <div></div>
+         <Link href="/newNovel">
+          <button
+          className="bg-transparent hover:bg-red-300 text-red-400 font-semibold hover:text-white py-2 px-4 border border-red-300 hover:border-transparent rounded">
+            New
+          </button>
+         </Link>
+          <div></div>
+          <div></div>
+          {<NovelByAuthor user_id = {userData?.user?.id}/>}
+       </div>
+      </div>
+    )
   }
-  
-  return (
-    <div>
-      <Navbar/>
-      <p>User: </p>
-      <pre>{JSON.stringify(session, null, 2)}</pre>
-      <div className="grid grid-cols-5 gap-4">
-       <div></div>
-       <div></div>
-       <Link href="/newNovel">
-        <button
-        className="bg-transparent hover:bg-red-300 text-red-400 font-semibold hover:text-white py-2 px-4 border border-red-300 hover:border-transparent rounded">
-          New
-        </button>
-       </Link>
-        <div></div>
-        <div></div>
-        {<NovelByAuthor user_id = {userData?.user?.id}/>}
-     </div>
-    </div>
-  )
+  return(<></>)
 }
 
 // Export the `session` prop to use sessions with Server Side Rendering
