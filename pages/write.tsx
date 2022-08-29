@@ -69,6 +69,7 @@ export default function Write({ session }: { session: Session }) {
   const {data: userData, isLoading} = useFetchUser(session?.user?.email)
   if(isLoading){
     console.log("Loading")
+    return(<>Loading...</>)
   }
   console.log(userData)
   return (
