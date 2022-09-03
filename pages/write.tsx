@@ -28,6 +28,7 @@ export default function Write({ session }: { session: Session }) {
       console.log("Loading")
       return(<>Loading...</>)
     }
+    console.log(userData)
     return (
       <div>
         <Navbar/>
