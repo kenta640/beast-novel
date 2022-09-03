@@ -28,7 +28,7 @@ export default function Write({ session }: { session: Session }) {
       console.log("Loading")
       return(<>Loading...</>)
     }
-    console.log(userData)
+    //console.log(userData)
     return (
       <div>
         <Navbar/>
@@ -45,7 +45,7 @@ export default function Write({ session }: { session: Session }) {
          </Link>
           <div></div>
           <div></div>
-          {/**<NovelByAuthor user_id = {userData?.user?.id}/>**/}
+          {<NovelByAuthor user_id = {userData?.data?.id}/>}
        </div>
       </div>
     )
