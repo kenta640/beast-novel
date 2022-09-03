@@ -22,7 +22,7 @@ export interface IInputProps {
 
 export default function Write({ session }: { session: Session }) {
   console.log(session?.user?.email)
-  if(session != undefined) {
+  
     const {data: userData, isLoading} = useFetchUser(session?.user?.email)
     if(isLoading){
       console.log("Loading")
@@ -48,7 +48,7 @@ export default function Write({ session }: { session: Session }) {
        </div>
       </div>
     )
-  }
+  
   return(<></>)
 }
 
