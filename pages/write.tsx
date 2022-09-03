@@ -32,7 +32,7 @@ export default function Write({ session }: { session: Session }) {
       <div>
         <Navbar/>
         <p>User: </p>
-        <pre>{userData}</pre>
+        <pre>{JSON.stringify(session, null, 2)}</pre>
         <div className="grid grid-cols-5 gap-4">
          <div></div>
          <div></div>
@@ -49,7 +49,7 @@ export default function Write({ session }: { session: Session }) {
       </div>
     )
   
-  return(<></>)
+ 
 }
 
 // Export the `session` prop to use sessions with Server Side Rendering
