@@ -32,7 +32,7 @@ export default function Write({ session }: { session: Session }) {
       <div>
         <Navbar/>
         <p>User: </p>
-        <pre>{JSON.stringify(session, null, 2)}</pre>
+        <pre>{userData}</pre>
         <div className="grid grid-cols-5 gap-4">
          <div></div>
          <div></div>
