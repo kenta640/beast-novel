@@ -44,7 +44,7 @@ export default function Write({ session }: { session: Session }) {
          </Link>
           <div></div>
           <div></div>
-          <NovelByAuthor user_id = {userData?.user?.id}/>
+          {/**<NovelByAuthor user_id = {userData?.user?.id}/>**/}
        </div>
       </div>
     )
