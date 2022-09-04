@@ -14,7 +14,7 @@ const queryCache = new QueryClient({
 });
 function MyApp({ Component, pageProps}: AppProps) {
   return (
-  <SessionProvider session={pageProps.session} refetchInterval={0}>
+  <SessionProvider session={pageProps.session} refetchInterval={1}>
     <QueryClientProvider client={queryCache}>
     <Component {...pageProps} />
     </QueryClientProvider>
