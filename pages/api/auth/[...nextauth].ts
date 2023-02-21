@@ -3,7 +3,7 @@ import type { NextAuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
 export const authOptions: NextAuthOptions ={
-
+    
     providers: [
   
       GoogleProvider({
@@ -13,7 +13,7 @@ export const authOptions: NextAuthOptions ={
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   
         //authorizationUrl: 'https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code',
-  
+        
       })
   
     ],
