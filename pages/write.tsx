@@ -7,7 +7,7 @@ import { useFetchUser, } from "./api/hooks/user.hooks"
 import {NovelByAuthor} from "../components/novelsByAuthor"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { unstable_getServerSession } from "next-auth/next"
+import { getServerSession } from "next-auth/next"
 import { authOptions } from "./api/auth/[...nextauth]"
 import type { GetServerSidePropsContext } from "next"
 import type { Session } from "next-auth"
@@ -18,7 +18,7 @@ export interface IInputProps {
   onChange?: (e?: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-
+//comment
 
 export default function Write({ session }: { session: Session }) {
   console.log(session?.user?.email)
@@ -57,7 +57,7 @@ export default function Write({ session }: { session: Session }) {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: {
-      session: await unstable_getServerSession(
+      session: await getServerSession(
         context.req,
         context.res,
         authOptions
