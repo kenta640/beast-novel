@@ -68,7 +68,7 @@ function NewNovel() {
         
       
           console.log(userData?.data?.id)
-          await (await axios.post('https://fastify-server-app.herokuapp.com/addNovel', 
+          await (await axios.post('https://beast-novel-server.herokuapp.com/addNovel', 
           {
               title: newNovel.title,
               summary: newNovel.summary,
